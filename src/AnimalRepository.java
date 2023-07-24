@@ -13,7 +13,12 @@ public class AnimalRepository implements Repository{
     @Override
     public void add(Animal animal){
         repository.add(animal);
-        counter.add();
+        try{
+           counter.add();
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
         System.out.println("Добавлено!\n");
     }
     public Integer getSize(){
@@ -30,5 +35,12 @@ public class AnimalRepository implements Repository{
         repository.remove(i);
         counter.remove();
         System.out.println("Удалено!\n");
+    }
+    public void getCommandsAnimal (int i){
+        List<String> commands = repository.get(i).getCommands();
+        for (int k = 0; k < commands.size(); k++) {
+            System.out.println(k + 1 + ". " + commands.get(k));
+        }
+        System.out.println("---");
     }
 }

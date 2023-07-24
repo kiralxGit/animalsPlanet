@@ -18,11 +18,14 @@ public abstract class Animal {
     public String getBirthDate(){
         return birthDate;
     }
-    public void printCommands(){
-        System.out.println(commands);
+    public List<String> getCommands(){
+        return commands;
     }
     public void addCommands(String command){
         commands.add(command);
+    }
+    public void removeCommands(int i){
+        commands.remove(i);
     }
 
     @Override

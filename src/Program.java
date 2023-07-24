@@ -21,7 +21,7 @@ public class Program {
             else if(command == 2) animals.printAllAnimals();
             else if(command == 3) System.out.println("Всего животных: " + animals.getSize() + "\n");
             else if(command == 4) removeAnimal();
-            else if(command == 5) System.out.println("Функция в процессе реализации...");
+            else if(command == 5) showCommands();
             else if(command == 6) System.out.println("Функция в процессе реализации...");
             else System.out.println("Введите корректное значение!");
         }
@@ -48,7 +48,7 @@ public class Program {
         System.out.println("Введите кличку:");
         Scanner sc = new Scanner(System.in);
         String name = sc.next();
-        System.out.println("Введите дату рождения:");
+        System.out.println("Введите дату рождения (например, 2010-12-25):");
         String birthday = sc.next();
         System.out.println("Выберите животное:");
         System.out.println("1. Cat\n" +
@@ -80,6 +80,25 @@ public class Program {
             if(command == 0) break;
             else if (command <= animals.getSize() && command > 0){
                 animals.removeAnimal(command - 1);
+                break;
+            }
+            else System.out.println("Введите корректное значение!");
+        }
+    }
+    private static void showCommands(){
+        if (animals.getSize() < 1){
+            System.out.println("Нет животных!");
+            return;
+        }
+        System.out.println("Выберите животное: ");
+        animals.printAllAnimals();
+        System.out.println("0. Отмена");
+
+        while(true){
+            int command = getUserCommand();
+            if(command == 0) break;
+            else if (command <= animals.getSize() && command > 0){
+                animals.getCommandsAnimal(command - 1);
                 break;
             }
             else System.out.println("Введите корректное значение!");

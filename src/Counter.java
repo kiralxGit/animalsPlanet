@@ -1,4 +1,4 @@
-public class Counter implements AutoCloseable{
+public class Counter implements AutoCloseable {
     private static Integer count;
     private static Counter counter;
     private Counter(){}
@@ -11,7 +11,7 @@ public class Counter implements AutoCloseable{
         }
         return counter;
     }
-    public void add(){
+    public void add() throws Exception {
         count++;
     }
     public void remove(){
