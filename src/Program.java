@@ -22,7 +22,7 @@ public class Program {
             else if(command == 3) System.out.println("Всего животных: " + animals.getSize() + "\n");
             else if(command == 4) removeAnimal();
             else if(command == 5) showCommands();
-            else if(command == 6) System.out.println("Функция в процессе реализации...");
+            else if(command == 6) addCommand();
             else System.out.println("Введите корректное значение!");
         }
         System.out.println(">>> Программа завершена! <<<");
@@ -76,10 +76,10 @@ public class Program {
         animals.printAllAnimals();
         System.out.println("0. Отмена");
         while(true){
-            int command = getUserCommand();
-            if(command == 0) break;
-            else if (command <= animals.getSize() && command > 0){
-                animals.removeAnimal(command - 1);
+            int animalId = getUserCommand();
+            if(animalId == 0) break;
+            else if (animalId <= animals.getSize() && animalId > 0){
+                animals.removeAnimal(animalId - 1);
                 break;
             }
             else System.out.println("Введите корректное значение!");
@@ -95,10 +95,34 @@ public class Program {
         System.out.println("0. Отмена");
 
         while(true){
-            int command = getUserCommand();
-            if(command == 0) break;
-            else if (command <= animals.getSize() && command > 0){
-                animals.getCommandsAnimal(command - 1);
+            int animalId = getUserCommand();
+            if(animalId == 0) break;
+            else if (animalId <= animals.getSize() && animalId > 0){
+                animals.getCommandsAnimal(animalId - 1);
+                break;
+            }
+            else System.out.println("Введите корректное значение!");
+        }
+    }
+    private static void addCommand(){
+        if (animals.getSize() < 1){
+            System.out.println("Нет животных!");
+            return;
+        }
+        System.out.println("Введите Команду:");
+        Scanner sc = new Scanner(System.in);
+        String command = sc.next();
+
+        System.out.println("Выберите кому добавить команду: ");
+        animals.printAllAnimals();
+        System.out.println("0. Отмена");
+
+
+        while(true){
+            int animalId = getUserCommand();
+            if(animalId == 0) break;
+            else if (animalId <= animals.getSize() && animalId > 0){
+                animals.addCommandsAnimal(animalId - 1, command);
                 break;
             }
             else System.out.println("Введите корректное значение!");

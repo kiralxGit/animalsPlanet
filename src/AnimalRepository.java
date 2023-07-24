@@ -36,11 +36,15 @@ public class AnimalRepository implements Repository{
         counter.remove();
         System.out.println("Удалено!\n");
     }
-    public void getCommandsAnimal (int i){
+    public void getCommandsAnimal(int i){
         List<String> commands = repository.get(i).getCommands();
         for (int k = 0; k < commands.size(); k++) {
             System.out.println(k + 1 + ". " + commands.get(k));
         }
         System.out.println("---");
+    }
+    public void addCommandsAnimal (int i, String command){
+        repository.get(i).addCommand(command);
+        System.out.println("Команда добавлена!\n");
     }
 }

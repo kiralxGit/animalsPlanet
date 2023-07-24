@@ -15,17 +15,11 @@ public abstract class Animal {
     public String getName(){
         return name;
     }
-    public String getBirthDate(){
-        return birthDate;
-    }
     public List<String> getCommands(){
         return commands;
     }
-    public void addCommands(String command){
+    public void addCommand(String command){
         commands.add(command);
-    }
-    public void removeCommands(int i){
-        commands.remove(i);
     }
 
     @Override
