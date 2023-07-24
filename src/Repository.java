@@ -1,6 +1,8 @@
+import pets.Animal;
+
 public interface Repository {
     void add(Animal animal);
     void printAllAnimals();
-    Animal removeAnimal(Integer i);
+    void removeAnimal(int i);
 
 }

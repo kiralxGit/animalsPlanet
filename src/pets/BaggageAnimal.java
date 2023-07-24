@@ -1,6 +1,8 @@
 package pets;
 
-import pets.Animal;
+public class BaggageAnimal extends Animal {
 
-public class BagageAnimal extends Animal {
+    public BaggageAnimal(String name, String birthDate, String command) {
+        super(name, birthDate, command);
+    }
 }
